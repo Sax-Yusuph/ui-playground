@@ -13,17 +13,18 @@ interface StatsProps {
   percentage: string;
 }
 
+
 function App() {
   return (
     <div className="bg-slate-950">
       <div className="flex flex-col h-[100vh] bg-slate-950 border-2 border-solid border-slate-950 m-4">
-        <Card bordered>
+        <Card >
           <Navbar />
 
           <section className="container">
             <Space direction="vertical" size={30} className="w-full mt-12">
-              <div className="flex justify-between">
-                <h1 className="text-white text-2xl ">Dashboard</h1>
+              <div className="flex justify-between -mb-4">
+                <h1 className="text-white text-3xl ">Dashboard</h1>
                 <div className="flex"> 
                   <div className="text-sm/[17px] mx-2 flex items-center justify-center border-2 border-solid border-gray-800 rounded-lg">
                     <IconCalendar />
@@ -31,6 +32,14 @@ function App() {
                   </div>
                   <Button >Download</Button>
                 </div>
+              </div>
+              <div className="w-fit h-8">
+                <Card bordered className='h-12 flex justify-center items-center'>
+                  <Button>Overview</Button>
+                  <Button type="text" disabled>Analytics</Button>
+                  <Button type="text" disabled>Reports</Button>
+                  <Button type="text" disabled>Notifications</Button>
+                </Card>
               </div>
               <Row gutter={20}>
                 <Stats title="Total Revenue" amount="$45,231.89" percentage="+20.1% from last month" />
