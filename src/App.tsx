@@ -4,6 +4,7 @@ import { Overview } from "./components/ui/overview";
 import RecentSales from "./components/ui/recentSales";
 import { IconCalendar } from "@arco-design/web-react/icon";
 
+
 const Row = Grid.Row;
 const Col = Grid.Col;
 
@@ -20,7 +21,7 @@ function App() {
       <div className="flex flex-col h-[100vh] bg-slate-950 border-2 border-solid border-slate-950 m-4">
         <Card >
           <Navbar />
-
+          
           <section className="container">
             <Space direction="vertical" size={30} className="w-full mt-8">
               <div className="flex justify-between -mb-4">
