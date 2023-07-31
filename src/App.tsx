@@ -1,4 +1,4 @@
-import { Button, Card, Grid, Space } from "@arco-design/web-react";
+import { Button, Card, Grid, Space, DatePicker } from "@arco-design/web-react";
 import Navbar from "./components/ui/navbar";
 import { Overview } from "./components/ui/overview";
 import RecentSales from "./components/ui/recentSales";
@@ -16,29 +16,31 @@ interface StatsProps {
 
 function App() {
   return (
-    <div className="bg-slate-950">
+    <div className="bg-slate-950 ">
       <div className="flex flex-col h-[100vh] bg-slate-950 border-2 border-solid border-slate-950 m-4">
         <Card >
           <Navbar />
 
           <section className="container">
-            <Space direction="vertical" size={30} className="w-full mt-12">
+            <Space direction="vertical" size={30} className="w-full mt-8">
               <div className="flex justify-between -mb-4">
                 <h1 className="text-white text-3xl ">Dashboard</h1>
                 <div className="flex"> 
                   <div className="text-sm/[17px] mx-2 flex items-center justify-center border-2 border-solid border-gray-800 rounded-lg">
                     <IconCalendar />
-                    <p className="text-sm/[14px]">Jan 20, 2023 - Feb 09, 2023</p>
+                    <p className="text-sm/[14px]">
+                      <DatePicker.RangePicker style={{ width: 350 }} />
+                    </p>
                   </div>
                   <Button >Download</Button>
                 </div>
               </div>
-              <div className="w-fit h-8">
-                <Card bordered className='h-12 flex justify-center items-center'>
-                  <Button>Overview</Button>
-                  <Button type="text" disabled>Analytics</Button>
-                  <Button type="text" disabled>Reports</Button>
-                  <Button type="text" disabled>Notifications</Button>
+              <div className="w-fit h-8 text-slate-50">
+                <Card bordered className='h-12 text-slate-50 flex justify-center items-center bg-stone-600'>
+                  <Button className=''>Overview</Button>
+                  <Button className='text-slate-50' >Analytics</Button>
+                  <Button  disabled>Reports</Button>
+                  <Button  disabled>Notifications</Button>
                 </Card>
               </div>
               <Row gutter={20}>
