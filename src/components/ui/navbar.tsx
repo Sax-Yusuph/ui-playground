@@ -1,19 +1,73 @@
-import { Link, Button, Input, Space } from "@arco-design/web-react";
+import { useState } from "react"
+import { Link, Button, Input, Space, TreeSelect } from "@arco-design/web-react";
 import Avatar, { genConfig } from "react-nice-avatar";
-import { IconDown } from '@arco-design/web-react/icon';
+
 
 const config = genConfig({ sex: "man", hairStyle: "mohawk" });
-const ButtonGroup = Button.Group;
+
+const treeData = [
+  {
+    key: 'node1',
+    title: 'personal Acc',
+    children: [
+      {
+        key: 'node2',
+        title: 'Sax-User1',
+      },
+    ],
+  },
+  {
+    key: 'node3',
+    title: 'Teams',
+    children: [
+      {
+        key: 'node4',
+        title: 'Sax-User2',
+      },
+      {
+        key: 'node5',
+        title: 'Sax-User3',
+      },
+    ],
+  },
+];
+
+
 
 const Navbar = () => {
+  const [value, setValue] = useState({
+    value: 'node2',
+    label: <div className="flex items-center gap-x-2">
+      <Avatar className="w-4 h-4" {...config} />
+      <p>Sax-User1</p>
+    </div>,
+  });
   return (
     <div className="border-b border-slate-800 p-3 ">
       <div className="container flex justify-between">
         <Space>
-          <ButtonGroup>
-            <Button>Sax-Loader</Button>
-            <Button icon={<IconDown />} />
-          </ButtonGroup>
+          
+          <div className="border-b border-slate-800 p-3 ">
+            <div className="flex flex-col">
+              <TreeSelect
+                labelInValue={true}
+                treeData={treeData}
+                value={value}
+                onChange={(v) => {
+                  setValue(v ? {
+                    value: v.value,
+                    label: <div>
+                      <Avatar className="w-4 h-4" {...config} />
+                      <span> {v.label}</span>
+                    </div>,
+                  } : v)
+                }}
+                style={{ width: 300 }}
+                
+              />
+            
+            </div>
+          </div>
   
           <Link href="#">Overview</Link>
           <Link href="#">Customers</Link>
