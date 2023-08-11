@@ -16,16 +16,10 @@ interface StatsProps {
 }
 
 
-// type TabType = 'capsule'
-
-
 function App() {
 
-  
-
   return (
-      <div className=" " >
-        
+      <div>
         <Navbar />
         <div className="p-8 bg-black flex flex-col">
           <section className="container">

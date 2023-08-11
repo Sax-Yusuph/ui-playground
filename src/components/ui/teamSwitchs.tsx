@@ -17,7 +17,7 @@ function TeamSwitchs() {
 
         {data.map((options, index) => {
           return (
-            <Select.OptGroup label={`Team-${index}`} key={index}>
+            <Select.OptGroup label={`Team-${index}`} key={options.id}>
               {options.map((option, _index) => (
                 <Option key={option} value={option}>
                   {option}
