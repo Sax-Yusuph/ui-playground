@@ -1,9 +1,10 @@
-import { Button, Card, Grid, Space, DatePicker } from "@arco-design/web-react";
+
+import {Tabs, Button, Card, Grid, Space, DatePicker } from "@arco-design/web-react";
 import Navbar from "./components/ui/navbar";
 import { Overview } from "./components/ui/overview";
 import RecentSales from "./components/ui/recentSales";
-import { IconCalendar } from "@arco-design/web-react/icon";
 
+const TabPane = Tabs.TabPane;
 
 const Row = Grid.Row;
 const Col = Grid.Col;
@@ -15,35 +16,46 @@ interface StatsProps {
 }
 
 
+// type TabType = 'capsule'
+
+
 function App() {
+
+  
+
   return (
-    <div className="bg-slate-950 ">
-      <div className="flex flex-col h-[100vh] bg-slate-950 border-2 border-solid border-slate-950 m-4">
-        <Card >
-          <Navbar />
-          
+      <div className=" " >
+        
+        <Navbar />
+        <div className="p-8 bg-black flex flex-col">
           <section className="container">
-            <Space direction="vertical" size={30} className="w-full mt-8">
+            <Space direction="vertical" size={30} className="w-full mt-2">
               <div className="flex justify-between -mb-4">
                 <h1 className="text-white text-3xl ">Dashboard</h1>
                 <div className="flex"> 
                   <div className="text-sm/[17px] mx-2 flex items-center justify-center border-2 border-solid border-gray-800 rounded-lg">
-                    <IconCalendar />
-                    <p className="text-sm/[14px]">
-                      <DatePicker.RangePicker style={{ width: 350 }} />
-                    </p>
+                    
+                    <div className="text-sm/[16px]">
+                      <DatePicker.RangePicker defaultValue={['2023-06-08', '2023-07-18']} style={{ width: 300, height: 30, }} />
+                    </div>
                   </div>
                   <Button >Download</Button>
                 </div>
               </div>
-              <div className="w-fit h-8 text-slate-50">
-                <Card bordered className='h-12 text-slate-50 flex justify-center items-center bg-stone-600'>
-                  <Button className=''>Overview</Button>
-                  <Button className='text-slate-50' >Analytics</Button>
-                  <Button  disabled>Reports</Button>
-                  <Button  disabled>Notifications</Button>
-                </Card>
-              </div>
+
+              <div className="flex">
+                  <Tabs type={"capsule"}>
+                    <TabPane key='1' title='Overview'>
+                    </TabPane>
+                    <TabPane key='2' title='Analytics'>
+                    </TabPane>
+                    <TabPane key='3' title='Reports'>
+                    </TabPane>
+                    <TabPane key='4' title='Notifications' disabled>
+                    </TabPane>
+                  </Tabs>
+                </div>
+              
               <Row gutter={20}>
                 <Stats title="Total Revenue" amount="$45,231.89" percentage="+20.1% from last month" />
                 <Stats title="Subscriptions" amount="+2350" percentage="+180.1% from last month" />
@@ -67,9 +79,8 @@ function App() {
               </Row>
             </Space>
           </section>
-        </Card>
+        </div>
       </div>
-    </div>
   );
 }
 
