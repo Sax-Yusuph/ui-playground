@@ -34,10 +34,10 @@ const Navbar = () => {
             </div>
           </div>
   
-          <ButtonGroup>
+          {/* <ButtonGroup>
             <Button>Sax-Loader</Button>
             <Button icon={<IconDown />} />
-          </ButtonGroup>
+          </ButtonGroup> */}
 
           <Link href="#">Overview</Link>
           <Link href="#">Customers</Link>
