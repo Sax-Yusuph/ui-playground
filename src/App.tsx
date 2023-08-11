@@ -1,4 +1,3 @@
-
 import {Tabs, Button, Card, Grid, Space, DatePicker } from "@arco-design/web-react";
 import Navbar from "./components/ui/navbar";
 import { Overview } from "./components/ui/overview";
@@ -17,7 +16,6 @@ interface StatsProps {
 
 
 function App() {
-
   return (
       <div>
         <Navbar />
@@ -76,6 +74,7 @@ function App() {
         </div>
       </div>
   );
+
 }
 
 export default App;
