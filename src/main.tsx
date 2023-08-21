@@ -1,4 +1,4 @@
-// import "@arco-design/web-react/dist/css/arco.css";
+import { BrowserRouter } from "react-router-dom"
 import enUS from '@arco-design/web-react/es/locale/en-US';
 import "@arco-themes/react-saxx/css/arco.css";
 
@@ -11,7 +11,9 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ConfigProvider locale={enUS}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ConfigProvider>
   </React.StrictMode>
 );

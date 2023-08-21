@@ -18,6 +18,9 @@ const Navbar = () => {
             <Link href="#" className='text-slate-500 hover:text-white'>Products</Link>
             <Link href="#" className='text-slate-500 hover:text-white'>Settings</Link>
           </div>
+          <div>
+            <Link href="/about" className='text-slate-200 hover:text-white'>Music</Link>
+          </div>
         </Space>
 
         <Space size={20}>
