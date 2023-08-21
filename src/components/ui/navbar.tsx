@@ -3,8 +3,6 @@ import UserNav from "./userNav";
 import TeamSwitchs from "./teamSwitchs";
 
 
-
-
 const Navbar = () => {
 
   return (
