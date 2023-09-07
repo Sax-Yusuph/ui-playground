@@ -1,32 +1,45 @@
-import { Link, Input, Space,  } from "@arco-design/web-react";
-import UserNav from "./userNav";
-import TeamSwitchs from "./teamSwitchs";
+import {  Flex, Link, Text } from "@radix-ui/themes"
+import { IoMdNotificationsOutline } from "react-icons/io"
+import { AiFillFund } from "react-icons/ai"
+import { Select, SelectItem } from "../reactants/select/select"
+import { Button } from "../reactants"
+import Avatar, { genConfig } from "react-nice-avatar";
 
+const config = genConfig({ sex: "man", hairStyle: "mohawk" });
 
 const Navbar = () => {
 
-  return (
-    
-      <div className="container h-20 w-full sticky top-0 z-40 border-b pr-8 bg-black border-slate-800 flex justify-between">
-        <Space size={20}>
-          <TeamSwitchs />
-          <div className='text-white'>
-            <Link href="#" className='text-slate-500 hover:text-white'>Overview</Link>
-            <Link href="#" className='text-slate-500 hover:text-white'>Customers</Link>
-            <Link href="#" className='text-slate-500 hover:text-white'>Products</Link>
-            <Link href="#" className='text-slate-500 hover:text-white'>Settings</Link>
-          </div>
-          <div>
-            <Link href="/about" className='text-slate-200 hover:text-white'>Music</Link>
-          </div>
-        </Space>
+    return (
+        <div className="my-2 flex items-center justify-between mx-5">
+            <div className="flex items-center gap-2">
+                <AiFillFund className="text-4xl" />
+                <Flex className="flex gap-4">
+                    <Avatar className="w-7 h-7" {...config} />
+                    <Text>Kay Bond</Text>
+                </Flex>
+                <Select
+                    placeholder="Select an option"
+                    className="custom-select"
+                >
+                    <SelectItem value="option1">Option 1</SelectItem>
+                    <SelectItem value="option2">Option 2</SelectItem>
+                    <SelectItem value="option3">Option 3</SelectItem>
+                </Select>
+            </div>
+            <Flex className="flex gap-4 items-center">
+                <Flex className="flex flex-row gap-4">
+                    <Button size="medium" color="gray" variant="ghost" className='bg-gray-200' >Feedback</Button>
+                    <Button size="medium" color="gray" variant="ghost" className='bg-gray-200' >Changelog</Button>
+                    <Button size="medium" color="gray" variant="ghost" className='bg-gray-200' >Help</Button>
+                    <Button size="medium" color="gray" variant="ghost" className='bg-gray-200' >Docs</Button>
+                </Flex>
+                <Link><IoMdNotificationsOutline className="text-2xl" /></Link>
+                
+                    <Avatar className="w-7 h-7" {...config} />
+                
+            </Flex>
+        </div>
+    )
+}
 
-        <Space size={20}>
-          <Input className="w-72" placeholder="search..." />
-          <UserNav />
-        </Space>
-      </div>
-  );
-};
-
-export default Navbar;
+export default Navbar

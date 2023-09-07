@@ -1,0 +1,92 @@
+.root {
+  display: inline-block;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.input {
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  border: 1px solid var(--gray7);
+  border-radius: var(--br-6);
+  background-color: var(--canvas);
+  width: 100%;
+  font-family: var(--ff-sans);
+}
+
+.input:focus-visible {
+  outline: 0;
+  border-color: var(--gray10);
+  box-shadow: 0 0 0 3px var(--gray6);
+}
+
+/* Disable zoom on iOS */
+@media (hover: none) {
+  .input {
+    font-size: var(--fs-16) !important;
+  }
+}
+
+.input::placeholder {
+  color: var(--gray9);
+}
+
+[data-size='medium'] .input {
+  border-radius: var(--br-6);
+  padding: 0 var(--sp-8);
+  height: var(--input-medium);
+  font-size: var(--fs-14);
+}
+
+[data-size='large'] .input {
+  padding: 0 var(--sp-8);
+  height: var(--input-large);
+  font-size: var(--fs-14);
+}
+
+.input[data-has-prefix='true'] {
+  padding-left: calc(var(--sp-32) - 1px);
+}
+
+.input[data-has-suffix='true'] {
+  padding-right: calc(var(--sp-32) - 1px);
+}
+
+.prefix,
+.suffix {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.suffix {
+  right: 6px;
+  left: unset;
+}
+
+.prefix svg,
+.suffix svg {
+  width: var(--sp-16);
+  height: var(--sp-16);
+  color: var(--gray9);
+}
+
+.prefix:has(button),
+.suffix:has(button) {
+  pointer-events: auto;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: var(--sp-4);
+}

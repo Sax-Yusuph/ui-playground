@@ -1,0 +1,74 @@
+.root {
+  width: var(--sp-16);
+  height: var(--sp-16);
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  background-color: transparent;
+  border-radius: var(--br-4);
+  position: relative;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  border: 1px solid var(--gray8);
+  cursor: pointer;
+  display: flex;
+  --focus: var(--gray9);
+}
+
+@media (hover: hover) {
+  .root:hover:not(:disabled) {
+    border-color: var(--gray9);
+  }
+
+  .root:hover:not(:disabled)[data-state='checked'] {
+    border-color: var(--accent9);
+  }
+}
+
+.root[data-state='checked'] {
+  border-color: var(--accent9);
+  background: var(--accent9);
+  --focus: var(--accent9);
+}
+
+.root:focus-visible {
+  outline: 0;
+  box-shadow:
+    0 0 0 2px var(--canvas),
+    0 0 0 4px var(--focus);
+}
+
+.check {
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  position: absolute;
+  color: #ffffff;
+  pointer-events: none;
+  transition: all 0.15s ease;
+  stroke-dashoffset: 1;
+  stroke-dasharray: 1;
+}
+
+.root[data-state='checked'] .check,
+.root[data-state='indeterminate'] .check {
+  opacity: 1;
+  pointer-events: auto;
+  stroke-dashoffset: 0;
+}
+
+.root[data-state='indeterminate'] .check {
+  color: var(--grayA11);
+}
+
+.root:disabled {
+  cursor: not-allowed;
+  border-color: var(--grayA6);
+  background-color: var(--grayA3);
+
+  & .check {
+    color: var(--grayA10);
+  }
+}

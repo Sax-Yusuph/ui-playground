@@ -1,104 +1,158 @@
-import {Tabs, Button, Card, Grid, Space, DatePicker } from "@arco-design/web-react";
-import Navbar from "../components/ui/navbar";
-import { Overview } from "../components/ui/overview";
-import RecentSales from "../components/ui/recentSales";
-
-const TabPane = Tabs.TabPane;
-
-const Row = Grid.Row;
-const Col = Grid.Col;
-
-interface StatsProps {
-  title: string;
-  amount: string;
-  percentage: string;
-}
+import { Tabs, Box, Text, Heading, Separator, Card, Flex, Button } from '@radix-ui/themes'
+import { BsDatabase } from "react-icons/bs"
+import { PiArrowSquareOutBold } from "react-icons/pi"
 
 
-function Home() {
+type Props = {}
+
+const Home = (_props: Props) => {
+
   return (
-      <div>
-        <Navbar />
-        <div className="p-4 bg-black flex flex-col">
-          <section className="container">
-            <Space direction="vertical" size={30} className="w-full mt-2">
-              <div className="flex justify-between -mb-4">
-                <h1 className="text-white text-3xl ">Dashboard</h1>
-                <div className="flex"> 
-                  <div className="text-sm/[17px] mx-2 flex items-center justify-center border-2 border-solid border-gray-800 rounded-lg">
-                    
-                    <div className="text-sm/[16px]">
-                      <DatePicker.RangePicker defaultValue={['2023-06-08', '2023-07-18']} style={{ width: 300, height: 30, }} />
-                    </div>
-                  </div>
-                  <Button >Download</Button>
-                </div>
-              </div>
+    <div>
 
-              <div className="flex">
-                  <Tabs type={"capsule"}>
-                    <TabPane key='1' title='Overview'>
-                    </TabPane>
-                    <TabPane key='2' title='Analytics'>
-                    </TabPane>
-                    <TabPane key='3' title='Reports'>
-                    </TabPane>
-                    <TabPane key='4' title='Notifications' disabled>
-                    </TabPane>
-                  </Tabs>
-                </div>
-              
-              <Row gutter={20}>
-                <Stats title="Total Revenue" amount="$45,231.89" percentage="+20.1% from last month" />
-                <Stats title="Subscriptions" amount="+2350" percentage="+180.1% from last month" />
-                <Stats title="Sales" amount="+12,234" percentage="+19% from last month" />
-                <Stats title="Active Now" amount="+573" percentage="+201% since last hour" />
-              </Row>
+        <Tabs.Root defaultValue="storage">
+                <Tabs.List className="shrink-0 flex gap-4 border-b mx-5 pb-24 border-mauve6">
+                    <Tabs.Trigger  className="bg-white h-[55px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative outline-none cursor-default" value="overview">Overview</Tabs.Trigger>
+                    <Tabs.Trigger  className="bg-white h-[55px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative outline-none cursor-default" value="integrations">Integrations</Tabs.Trigger>
+                    <Tabs.Trigger  className="bg-white h-[55px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative outline-none cursor-default" value="activity">Activity</Tabs.Trigger>
+                    <Tabs.Trigger  className="bg-white h-[55px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative outline-none cursor-default" value="domains">Domains</Tabs.Trigger>
+                    <Tabs.Trigger  className="bg-white h-[55px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative outline-none cursor-default" value="storage">Storage</Tabs.Trigger>
+                </Tabs.List>
+                <Tabs.List>
+                    <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+                    <Tabs.Trigger value="integrations">Integrations</Tabs.Trigger>
+                    <Tabs.Trigger value="activity">Activity</Tabs.Trigger>
+                    <Tabs.Trigger value="domains">Domains</Tabs.Trigger>
+                    <Tabs.Trigger value="storage">Storage</Tabs.Trigger>
+                </Tabs.List>
 
-              <Row gutter={20}>
-                <Col span={12}>
-                  <Card bordered>
-                    <h1 className="text-white py-4 pl-5">Overview</h1>
-                    <Overview />
-                  </Card>
-                </Col>
+                <Box pt="3" pb="2" className=''>
+                    <Tabs.Content value="overview">
+                        <div className='px-20'>
+                            <Heading size="8">Overview</Heading>
+                            <Text size="2">Make changes to your account.</Text>
+                        </div>
+                        <Separator my="3" size="4" />
+                    </Tabs.Content>
 
-                <Col span={12}>
-                  <Card bordered>
-                    <RecentSales />
-                  </Card>
-                </Col>
-              </Row>
-            </Space>
-          </section>
-        </div>
-      </div>
-  );
+                    <Tabs.Content value="integrations">
+                        <div className='px-20'>
+                        <Heading size="8" className=''>Integration</Heading>
+                        <Text size="2">Access and update your documents.</Text>
+                        </div>
+                        <Separator my="3" size="4" />
+                    </Tabs.Content>
 
+                    <Tabs.Content value="activity">
+                        <div className='px-20'>
+                        <Heading size="8">Activity</Heading>
+                        <Text size="3">Edit your profile or update contact information.</Text>
+                        </div>
+                        <Separator my="3" size="4" />
+                    </Tabs.Content>
+
+                    <Tabs.Content value="domains">
+                        <div className='px-20'>
+                            <Heading size="8">Domain</Heading>
+                            <Text size="3">Edit your profile or update contact information.</Text>
+                        </div>
+                        <Separator my="3" size="4" />
+                    </Tabs.Content>
+
+                    <Tabs.Content value="storage">
+                        <div className='flex items-center justify-between px-20'>
+                            <div className=''>
+                                <Heading size="8">Storage</Heading>
+                                <Text size="3">Read and write directly to databases and from your projects.</Text>
+                            </div>
+                            <Button variant='surface' highContrast color='gray' radius='large'>Create Database</Button>
+                        </div>
+                        <Separator my="3" size="4" />
+                        <div className='flex justify-center'>
+                            <Card style={{ width: 1100}}>
+                                <div className='flex flex-col items-center justify-center'>
+                                    <div className='m-8 flex flex-col items-center gap-2'>
+                                        <div className='h-16 w-16 border-2 flex items-center justify-center rounded-lg'>
+                                            <BsDatabase className='h-10 w-10 ' />
+                                        </div>
+                                        <Heading>Create a database</Heading>
+                                        <Text className='text-center'>Craete a database and stores that  you can connect to your team's project</Text>
+                                    </div>
+                                    
+                                    <Card size="1" style={{ width: 500 }}>
+                                        <Flex gap="3" align="center" direction="row" justify='between'>
+                                            <div className='flex items-center gap-4'>
+                                                <div className='h-12 w-12 border-2 flex items-center justify-center rounded-lg'>
+                                                    <BsDatabase className='h-8 w-8 ' />
+                                                </div>
+                                                <Box>
+                                                    <Text as="div" size="2" weight="bold">
+                                                        Edge Config
+                                                    </Text>
+                                                    <Text as="div" size="2" color="gray">
+                                                        Ultra-low latency reads
+                                                    </Text>
+                                                </Box>
+                                            </div>
+                                            <Button variant="soft" color='gray' highContrast radius='large'>Create</Button>
+                                        </Flex>
+                                        <hr className='w-full my-4 leading-8' />
+                                        <Separator my="3" className='leading-8' />
+                                        <Flex gap="3" align="center" direction="row" justify='between'>
+                                            <div className='flex items-center gap-4'>
+                                                <div className='h-12 w-12 border-2 flex items-center justify-center rounded-lg'>
+                                                    <BsDatabase className='h-8 w-8 ' />
+                                                </div>
+                                                <Box>
+                                                    <Text as="div" size="2" weight="bold">
+                                                        Postgres <Button variant='outline' radius='full' size='1'>Beta</Button>
+                                                    </Text>
+                                                    <Text as="div" size="2" color="gray">
+                                                        Serverless SQL
+                                                    </Text>
+                                                </Box>
+                                            </div>
+                                            <Button variant="soft" color='gray' highContrast radius='large'>Create</Button>
+                                        </Flex>
+                                        <Separator my="3" size="4" />
+                                        <Flex gap="3" align="center" direction="row" justify='between'>
+                                            <div className='flex items-center gap-4'>
+                                                <div className='h-12 w-12 border-2 flex items-center justify-center rounded-lg'>
+                                                    <BsDatabase className='h-8 w-8 ' />
+                                                </div>
+                                                <Box>
+                                                    <Text as="div" size="2" weight="bold">
+                                                        Blob <Button variant='outline' radius='full' size='1' >Invite</Button>
+                                                    </Text>
+                                                    <Text as="div" size="2" color="gray">
+                                                        Fast object storage
+                                                    </Text>
+                                                </Box>
+                                            </div>
+                                            <Button variant="soft" color='gray' highContrast radius='large'>Join Waitlist</Button>
+                                        </Flex>
+                                    </Card>
+                                    <Card variant="surface" style={{ width: 500, margin: 20}}>
+                                        <Flex justify='between' align="center">
+                                            <Flex direction="column">
+                                                <Text as="div" size="3" weight="bold">
+                                                Browse Database Integrations
+                                                </Text>
+                                                <Text as="div" color="gray" size="3">
+                                                Extend your database options even further.
+                                                </Text>
+                                            </Flex>
+                                            <Button color='gray' variant='soft'><PiArrowSquareOutBold className='text-xl' /></Button>
+                                        </Flex>
+                                    </Card>
+                                </div>
+                            </Card>
+                        </div>
+                    </Tabs.Content>
+                </Box>
+            </Tabs.Root>
+    </div>
+  )
 }
 
-export default Home;
-
-const Stats: React.FC<StatsProps> = ({ title, amount, percentage }) => (
-  <Col span={6}>
-    <Card>
-      <div className="flex items-center justify-between">
-        <p className="text-sm font-medium">{title}</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          className="h-4 w-4 text-muted-foreground"
-        >
-          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-        </svg>
-      </div>
-      <div className="text-2xl font-bold">{amount}</div>
-      <p className="text-xs text-muted-foreground">{percentage}</p>
-    </Card>
-  </Col>
-);
+export default Home

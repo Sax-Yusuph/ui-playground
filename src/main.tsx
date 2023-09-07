@@ -1,19 +1,18 @@
-import { BrowserRouter } from "react-router-dom"
-import enUS from '@arco-design/web-react/es/locale/en-US';
-import "@arco-themes/react-saxx/css/arco.css";
-
-import { ConfigProvider } from "@arco-design/web-react";
+// import "@arco-themes/react-saxx/css/arco.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
+import { Theme } from "@radix-ui/themes";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ConfigProvider locale={enUS}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ConfigProvider>
+      
+        
+          <Theme>
+            <App />
+          </Theme>
+      
+      
   </React.StrictMode>
 );
