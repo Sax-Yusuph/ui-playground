@@ -3,21 +3,11 @@ import { BsDatabase } from "react-icons/bs"
 import { PiArrowSquareOutBold } from "react-icons/pi"
 
 
-type Props = {}
 
-const Home = (_props: Props) => {
-
-  return (
-    <div>
-
-        <Tabs.Root defaultValue="storage">
-                <Tabs.List className="shrink-0 flex gap-4 border-b mx-5 pb-24 border-mauve6">
-                    <Tabs.Trigger  className="bg-white h-[55px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative outline-none cursor-default" value="overview">Overview</Tabs.Trigger>
-                    <Tabs.Trigger  className="bg-white h-[55px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative outline-none cursor-default" value="integrations">Integrations</Tabs.Trigger>
-                    <Tabs.Trigger  className="bg-white h-[55px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative outline-none cursor-default" value="activity">Activity</Tabs.Trigger>
-                    <Tabs.Trigger  className="bg-white h-[55px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative outline-none cursor-default" value="domains">Domains</Tabs.Trigger>
-                    <Tabs.Trigger  className="bg-white h-[55px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative outline-none cursor-default" value="storage">Storage</Tabs.Trigger>
-                </Tabs.List>
+const Home = () => {
+    return (
+        <div>
+            <Tabs.Root defaultValue="storage">
                 <Tabs.List>
                     <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
                     <Tabs.Trigger value="integrations">Integrations</Tabs.Trigger>
@@ -96,8 +86,8 @@ const Home = (_props: Props) => {
                                             </div>
                                             <Button variant="soft" color='gray' highContrast radius='large'>Create</Button>
                                         </Flex>
-                                        <hr className='w-full my-4 leading-8' />
-                                        <Separator my="3" className='leading-8' />
+                                        {/* <hr className='w-full my-4 leading-8' /> */}
+                                        <Separator my="3" size="4" />
                                         <Flex gap="3" align="center" direction="row" justify='between'>
                                             <div className='flex items-center gap-4'>
                                                 <div className='h-12 w-12 border-2 flex items-center justify-center rounded-lg'>
@@ -151,8 +141,8 @@ const Home = (_props: Props) => {
                     </Tabs.Content>
                 </Box>
             </Tabs.Root>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Home
