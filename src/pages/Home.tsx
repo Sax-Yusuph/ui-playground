@@ -86,7 +86,7 @@ const Home = () => {
                                             </div>
                                             <Button variant="soft" color='gray' highContrast radius='large'>Create</Button>
                                         </Flex>
-                                        {/* <hr className='w-full my-4 leading-8' /> */}
+                                        
                                         <Separator my="3" size="4" />
                                         <Flex gap="3" align="center" direction="row" justify='between'>
                                             <div className='flex items-center gap-4'>
